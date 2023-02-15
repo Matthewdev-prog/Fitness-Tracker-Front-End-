@@ -1,16 +1,12 @@
-import React, {useEffect, useState} from 'react';
-import { createRoot } from 'react-dom/client';
-import { Routes, Route, HashRouter} from "react-router-dom"
+import React, { useEffect, useState } from "react";
+import { createRoot } from "react-dom/client";
+import { Routes, Route, HashRouter } from "react-router-dom";
 import { AllRoutines, Home, Nav, Activities, Login } from "./components";
 
 // import { fetchPublicRoutines, fetchAllActivities } from './api/index';
 
-
-
-
-const App = ()=> {
-  useEffect(() => {
-  }, [])
+const App = () => {
+  useEffect(() => {}, []);
   return (
     <div>
       <Nav />
@@ -24,6 +20,10 @@ const App = ()=> {
   );
 };
 
-const root = createRoot(document.querySelector('#root'));
+const root = createRoot(document.querySelector("#root"));
 
-root.render(<HashRouter><App /></HashRouter>);
+root.render(
+  <HashRouter>
+    <App />
+  </HashRouter>
+);
