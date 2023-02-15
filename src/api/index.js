@@ -4,6 +4,11 @@ export {
   editRoutine,
 } from "./routinesFetchCalls";
 
-export {} from "./userFetchCalls";
+export {
+  registerUser,
+  loginUser,
+  getUserInfo,
+  getUsersPublicRoutines,
+} from "./userFetchCalls";
 
 export { fetchAllActivities } from "./activitiesFetchCalls";
