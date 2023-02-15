@@ -1,19 +1,25 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
 const Nav = () => {
   return (
-    <div class="topnav">
-      <a class="logo" href="#">
-        <img class="logo" src="files/ft-logo.png" alt="Site logo" />
+    <div className="topnav">
+      <a className="logo" href="#">
+        <img
+          className="logo"
+          src="../../assets/files/ft-logo.png"
+          alt="Site logo"
+        />
       </a>
-      <a href="index.html">Home</a>
-      <a href="routines.html">Routines</a>
-      <a href="activities.html">Activities</a>
-      <a class="active" href="#login">
+      <Link to="/">Home</Link>
+      <Link to="/routines">Routines</Link>
+      <Link to="/activities">Activities</Link>
+      <Link className="active" to="/login">
         login
-      </a>
+      </Link>
     </div>
   );
 };
 
 export default Nav;
+
