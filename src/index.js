@@ -1,7 +1,14 @@
-import React from 'react';
+import React, {useEffect, useState} from 'react';
 import { createRoot } from 'react-dom/client';
+import { fetchPublicRoutines, fetchAllActivities } from './api/index';
+
+
+
 
 const App = ()=> {
+  useEffect(() => {
+    fetchAllActivities();
+  }, [])
   return (
     <div>
       <h1>Front End</h1>
