@@ -21,7 +21,7 @@ const Register = (props) => {
     <div className="loginContainer">
       <div>{registerIssue}</div>
 
-      <div class="container1">
+      <div className="container1">
 
   <div>
   <h1 className="login">Register</h1>
