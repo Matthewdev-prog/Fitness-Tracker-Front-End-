@@ -1,25 +1,25 @@
-import React, {useState} from 'react';
+import React, { useState } from "react";
 import { Link } from "react-router-dom";
-import { registerUser } from '../api';
-
+import { registerUser } from "../api";
 
 const Register = () => {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
-  const [registerIssue, setRegisterIssue] = useState("")
-  const handleSubmit = async ev => {
+  const [registerIssue, setRegisterIssue] = useState("");
+  const handleSubmit = async (ev) => {
     ev.preventDefault();
-    const register = await registerUser({username, password})
-    if(register.error){
+    const register = await registerUser({ username, password });
+    if (register.error) {
       setRegisterIssue(register.message);
       return;
     }
-    const {token} = register;
-    window.localStorage.setItem("token", token)
-  }
+    const { token } = register;
+    window.localStorage.setItem("token", token);
+  };
   return (
     <div className="loginContainer">
       <div>{registerIssue}</div>
+
       <div class="container1">
 
   <div>
