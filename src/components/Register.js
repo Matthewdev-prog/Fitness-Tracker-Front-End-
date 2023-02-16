@@ -2,7 +2,8 @@ import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import { registerUser } from "../api";
 
-const Register = () => {
+const Register = (props) => {
+  const {setToken} = props;
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
   const [registerIssue, setRegisterIssue] = useState("");
