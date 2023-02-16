@@ -14,7 +14,7 @@ const Activities = () => {
  //   console.log(AllActivities)
 
  return (
-  <div class="container2">
+  <div className="container2">
   <div>
 
      <h1>Activities</h1>
@@ -33,7 +33,7 @@ const Activities = () => {
       </div>
   </div>
    <div>
-   <img class="imagediv" src="../../assets/files/Frame-4.png" alt="woman dong yoga" />
+   <img className="imagediv" src="../../assets/files/Frame-4.png" alt="woman dong yoga" />
  </div>
  </div>
 );
