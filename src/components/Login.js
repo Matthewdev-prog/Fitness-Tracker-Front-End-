@@ -21,6 +21,14 @@ const Login = () => {
   return (
     <div className="loginContainer">
       <div>{loginIssue}</div>
+      <div class="container1">
+
+  <div>
+  <h1 className="login">Login</h1>
+  <p>Login to start tracking your fitness routines.</p>
+  </div>
+
+
       <form className="formContainer" onSubmit={(ev) => handleSubmit(ev)}>
         <div className="formdiv">
           <label>User Name</label>
@@ -44,6 +52,7 @@ const Login = () => {
           Need an account? <Link to="/register">Register here</Link>
         </p>
       </form>
+    </div>
     </div>
   );
 };

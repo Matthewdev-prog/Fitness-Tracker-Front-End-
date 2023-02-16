@@ -19,31 +19,30 @@ const Register = () => {
   return (
     <div className="loginContainer">
       <div>{registerIssue}</div>
-      <form className="formContainer" onSubmit={(ev) => handleSubmit(ev)}>
-        <div className="formdiv">
-          <label>Username</label>
-          <input
-            placeholder="Your user name..."
-            value={username}
-            onChange={(ev) => setUsername(ev.target.value)}
-          />
-        </div>
-        <div className="formdiv">
-          <label>Password</label>
-          <input
-            type="password"
-            placeholder="Your password must be atleast 8 characters long..."
-            value={password}
-            onChange={(ev) => setPassword(ev.target.value)}
-          />
-        </div>
-        <input className="btn" type="submit" value="Register" />
-        <p className="smalltext">
-          Already have an account? <Link to="/login">Login here</Link>
-        </p>
-      </form>
-    </div>
-  );
-};
+
+      <div class="container1">
+
+  <div>
+  <h1 className="login">Register</h1>
+  <p>Start improving your health. Sign up today!</p>
+  </div>
+    <form className="formContainer" onSubmit={(ev) => handleSubmit(ev)}>
+      <div className="formdiv">
+        <label>Username</label>
+        <input placeholder="Your user name..." value={username} onChange={ev => setUsername(ev.target.value)}/>
+      </div>
+      <div className="formdiv">
+        <label>Password</label>
+        <input type="password" placeholder="Your password must be atleast 8 characters long..." value={password} onChange={ev => setPassword(ev.target.value)}/>
+      </div>
+      <input className="btn" type="submit" value="Register" />
+      <p className="smalltext">
+       Already have an account? <Link to='/login'>Login here</Link>
+      </p>
+    </form>
+  </div>
+  </div>
+  )
+}
 
 export default Register;
