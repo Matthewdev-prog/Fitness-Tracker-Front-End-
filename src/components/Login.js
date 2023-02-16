@@ -2,7 +2,8 @@ import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import { registerUser, loginUser } from "../api";
 
-const Login = () => {
+const Login = (props) => {
+  const { token, setToken } = props
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
   const [loginIssue, setLoginIssue] = useState("");
@@ -16,6 +17,7 @@ const Login = () => {
     }
     const { token } = login;
     window.localStorage.setItem("token", token);
+    setToken(token)
   };
 
   return (

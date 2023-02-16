@@ -1,14 +1,15 @@
 import React from "react";
 import { Login } from ".";
 
-const Home = () => {
+const Home = (props) => {
+  const {setToken, token} = props
   return <>
   
   <div class="container">
     <img  className="hero" src="../../assets/files/heropage.png" alt="homepage" /> 
   </div>
 
-  <Login/>
+  <Login setToken={setToken} token={token}/>
  
   </>;
 };
