@@ -1,4 +1,5 @@
 import React from "react";
+import { Login } from ".";
 
 const Home = () => {
   return <>
@@ -6,8 +7,9 @@ const Home = () => {
   <div class="container">
     <img  className="hero" src="../../assets/files/heropage.png" alt="homepage" /> 
   </div>
-  
-  
+
+  <Login/>
+ 
   </>;
 };
 

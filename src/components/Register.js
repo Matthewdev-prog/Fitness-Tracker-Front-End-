@@ -20,6 +20,12 @@ const Register = () => {
   return (
     <div className="loginContainer">
       <div>{registerIssue}</div>
+      <div class="container1">
+
+  <div>
+  <h1 className="login">Register</h1>
+  <p>Start improving your health. Sign up today!</p>
+  </div>
     <form className="formContainer" onSubmit={(ev) => handleSubmit(ev)}>
       <div className="formdiv">
         <label>Username</label>
@@ -34,6 +40,7 @@ const Register = () => {
        Already have an account? <Link to='/login'>Login here</Link>
       </p>
     </form>
+  </div>
   </div>
   )
 }
