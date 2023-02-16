@@ -50,11 +50,10 @@ const getUserInfo = async (token) => {
   return result;
 };
 
-const getUsersPublicRoutines = async ({ username, token }) => {
+const getUsersPublicRoutines = async ({ username}) => {
   const response = await fetch(`${MAIN_URL}${username}/routines`, {
     headers: {
       "Content-Type": "application/json",
-      Authorization: `Bearer ${token}`,
     },
   });
   const result = await response.json();

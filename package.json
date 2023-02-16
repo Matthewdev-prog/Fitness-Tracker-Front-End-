@@ -6,7 +6,8 @@
   "scripts": {
     "build": "webpack",
     "build:dev": "webpack --watch --mode=development",
-    "start:dev": "nodemon server --ignore dist/ --ignore src/ & npm run build:dev"
+    "start:dev": "nodemon server --ignore dist/ --ignore src/ & npm run build:dev",
+    "prettier": "prettier --write"
   },
   "keywords": [],
   "author": "",
@@ -23,6 +24,7 @@
   },
   "dependencies": {
     "express": "^4.18.2",
+    "prettier": "^2.8.4",
     "react-router-dom": "^6.8.1"
   }
 }
