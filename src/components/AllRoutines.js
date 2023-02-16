@@ -13,21 +13,28 @@ const AllRoutines = () => {
   }, []);
   //   console.log(publicRoutines)
   return (
+    
     <div>
+      <h1>Routines</h1>
+      <div className = "routines">
+      
       {publicRoutines.length
         ? publicRoutines.map((routine) => {
             const { id, name, creatorName, goal } = routine;
             return (
               <div key={id}>
-                <div>{name}</div>
-                <div>goal of routine: {goal}</div>
-                <div>by : {creatorName}</div>
-              </div>
+               <ul> <li>{name}</li> </ul>
+                <div className ="hidden" >goal of routine: {goal}</div>
+                <div className = "hidden" >by : {creatorName}</div>
+            </div>
             );
-          })
+            })
         : null}
+    </div>
     </div>
   );
 };
+
+
 
 export default AllRoutines;
