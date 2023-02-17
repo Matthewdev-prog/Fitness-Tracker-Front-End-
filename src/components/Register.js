@@ -1,5 +1,5 @@
-import React, { useState } from "react";
-import { Link } from "react-router-dom";
+import React, { useState, useEffect } from "react";
+import { Link, useNavigate } from "react-router-dom";
 import { registerUser } from "../api";
 
 const Register = (props) => {
@@ -7,6 +7,8 @@ const Register = (props) => {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
   const [registerIssue, setRegisterIssue] = useState("");
+  const nav = useNavigate();
+
   const handleSubmit = async (ev) => {
     ev.preventDefault();
     const register = await registerUser({ username, password });
@@ -16,7 +18,17 @@ const Register = (props) => {
     }
     const { token } = register;
     window.localStorage.setItem("token", token);
+    setToken(token)
+    nav("/routines/myactivities")
   };
+
+  useEffect(() => {
+    const token = window.localStorage.getItem("token")
+    if(token){
+      nav("/")
+    }
+  }, []);
+
   return (
     <div className="loginContainer">
       <div>{registerIssue}</div>
