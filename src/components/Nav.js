@@ -19,7 +19,7 @@ const Nav = (props) => {
       
       { token ?
         <>
-          <Link to="/routines/myactivities">My Activities</Link>
+          <Link to="/routines/myroutines">My Routines</Link>
           <Link className="active" to="/logout">logout</Link>
         </>
       : <Link className="active" to="/login">login</Link>
