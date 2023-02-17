@@ -1,44 +1,25 @@
-import React, { useState, useEffect } from "react";
-import { Link, useNavigate } from "react-router-dom";
-import { registerUser } from "../api";
+import React, {useState} from 'react';
+import { Link } from "react-router-dom";
+import { registerUser } from '../api';
 
-const Register = (props) => {
-  const {setToken} = props;
+
+const Register = () => {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
-  const [registerIssue, setRegisterIssue] = useState("");
-  const nav = useNavigate();
-
-  const handleSubmit = async (ev) => {
+  const [registerIssue, setRegisterIssue] = useState("")
+  const handleSubmit = async ev => {
     ev.preventDefault();
-    const register = await registerUser({ username, password });
-    if (register.error) {
+    const register = await registerUser({username, password})
+    if(register.error){
       setRegisterIssue(register.message);
       return;
     }
-    const { token } = register;
-    window.localStorage.setItem("token", token);
-    setToken(token)
-    nav("/routines/myactivities")
-  };
-
-  useEffect(() => {
-    const token = window.localStorage.getItem("token")
-    if(token){
-      nav("/")
-    }
-  }, []);
-
+    const {token} = register;
+    window.localStorage.setItem("token", token)
+  }
   return (
     <div className="loginContainer">
       <div>{registerIssue}</div>
-
-      <div className="container1">
-
-  <div>
-  <h1 className="login">Register</h1>
-  <p>Start improving your health. Sign up today!</p>
-  </div>
     <form className="formContainer" onSubmit={(ev) => handleSubmit(ev)}>
       <div className="formdiv">
         <label>Username</label>
@@ -53,7 +34,6 @@ const Register = (props) => {
        Already have an account? <Link to='/login'>Login here</Link>
       </p>
     </form>
-  </div>
   </div>
   )
 }
