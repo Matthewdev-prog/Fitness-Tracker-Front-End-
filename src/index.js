@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { createRoot } from "react-dom/client";
 import { Routes, Route, HashRouter, useLocation } from "react-router-dom";
+import { getUserInfo } from "./api";
 import { AllRoutines, Home, Nav, Activities, Login, Register, SingleUserRoutines, MyRoutines } from "./components";
 import Logout from "./components/Logout";
 
@@ -8,14 +9,23 @@ import Logout from "./components/Logout";
 
 const App = () => {
   const [token, setToken] = useState("");
+  const [user, setUser] = useState("")
   const location = useLocation();
   const pathname = location.pathname
 
-  const tokenCheck = () => {
+  const tokenCheck = async () => {
     const token = window.localStorage.getItem("token");
     console.log('hi');
     if(token){
       setToken(token);
+    if(!user){
+      const loggedIn = await getUserInfo(token)
+      console.log("LOGGED IN", loggedIn)
+      if(!loggedIn.id){
+        return;
+      }
+      setUser(loggedIn)
+    }
     } else {
       setToken("");
     }
@@ -32,11 +42,11 @@ const App = () => {
         <Route exact path="/" element={<Home setToken={setToken} token={token}/>} />
         <Route path="/routines" element={<AllRoutines />} />
         <Route path="/login" element={<Login setToken={setToken} token={token}/>} />
-        <Route path="/logout" element={<Logout setToken={setToken} tokenCheck={tokenCheck}/>}/>
+        <Route path="/logout" element={<Logout />}/>
         <Route path="/activities" element={<Activities />} />
         <Route path="/register" element={<Register setToken={setToken} token={token}/>}/>
-        <Route path="/routines/:creatorName" element={<SingleUserRoutines />}/>
-        <Route path="/routines/myactivities" element={<MyRoutines />}/>
+        <Route path="/routines/:creatorName" element={<SingleUserRoutines token={token}/>}/>
+        <Route exact path="/routines/myroutines" element={<MyRoutines />}/>
       </Routes>
     </div>
   );

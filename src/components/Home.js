@@ -10,7 +10,7 @@ const Home = (props) => {
   </div>
 
   {token ? 
-    <CreateRoutines />
+    <CreateRoutines token={token}/>
   : <Login setToken={setToken} token={token}/>
   }
  
