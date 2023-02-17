@@ -18,14 +18,16 @@ const Activities = () => {
   <div>
 
      <h1>Activities</h1>
-     <div className="routines">
+     <div className="activityCard">
     {AllActivities.length
       ? AllActivities.map((activity) => {
           const { id, name, description } = activity;
           return (
+            <div className="card">
             <div key={id}>
-              <div>name: {name}</div>
-              <div>description: {description}</div>
+              <div>Name: {name}</div>
+              <div>Description: {description}</div>
+            </div>
             </div>
           );
         })

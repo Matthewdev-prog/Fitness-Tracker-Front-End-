@@ -1,0 +1,19 @@
+.activityCard {
+    display: flex;
+    flex-direction: column;
+    padding: 10px;
+    margin-top: 10px;
+   border: 1px black;
+    font-size: large;
+    }
+
+    .card {
+     box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+     padding: 2px;
+     margin-bottom: 7px;
+     height: 100px;
+    }
+
+    .card:hover {
+        box-shadow: 0 8px 16px 0  #854CEA;
+    }
