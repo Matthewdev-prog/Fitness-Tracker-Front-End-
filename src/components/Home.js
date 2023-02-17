@@ -1,5 +1,5 @@
 import React from "react";
-import { Login } from ".";
+import { CreateRoutines, Login } from ".";
 
 const Home = (props) => {
   const {setToken, token} = props
@@ -9,7 +9,10 @@ const Home = (props) => {
     <img  className="hero" src="../../assets/files/heropage.png" alt="homepage" /> 
   </div>
 
-  <Login setToken={setToken} token={token}/>
+  {token ? 
+    <CreateRoutines />
+  : <Login setToken={setToken} token={token}/>
+  }
  
   </>;
 };
