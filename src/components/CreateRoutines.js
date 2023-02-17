@@ -13,7 +13,7 @@ const CreateRoutines = () => {
       <form className='loginContainer'>
         <input placeholder='enter name here...'/>
         <input placeholder='enter goal here...'/>
-        <input className="btn" type="submit" value="Submit" />
+        <input className="btn" type="submit" value="Create new routine" />
       </form>
     </div>
   )
