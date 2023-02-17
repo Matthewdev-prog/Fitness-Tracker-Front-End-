@@ -3,6 +3,12 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    height: 90vh;
-    width: 100vw;
+}
+.checkBoxDiv {
+  display: flex;
+  align-items: center;
+  padding: 1rem;
+}
+.checkbox  {
+  margin: 0 1rem 0 1rem
 }
