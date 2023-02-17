@@ -5,7 +5,7 @@ const Home = (props) => {
   const {setToken, token} = props
   return <>
   
-  <div class="container">
+  <div className="container">
     <img  className="hero" src="../../assets/files/heropage.png" alt="homepage" /> 
   </div>
 
