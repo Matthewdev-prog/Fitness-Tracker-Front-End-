@@ -18,7 +18,10 @@ const Nav = (props) => {
       <Link to="/activities">Activities</Link>
       
       { token ?
-        <Link className="active" to="/logout">logout</Link>
+        <>
+          <Link to="/routines/myactivities">My Activities</Link>
+          <Link className="active" to="/logout">logout</Link>
+        </>
       : <Link className="active" to="/login">login</Link>
       }
       
