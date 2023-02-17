@@ -1,10 +1,8 @@
 import React from "react";
 import { Navigate } from "react-router-dom";
 
-const Logout = (props) => {
-  const { setToken, tokenCheck } = props;
+const Logout = () => {
   window.localStorage.removeItem("token");
-  // setToken("")
   return <Navigate to="/" />;
 };
 
