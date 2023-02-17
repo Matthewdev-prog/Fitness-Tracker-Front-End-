@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { createRoot } from "react-dom/client";
 import { Routes, Route, HashRouter, useLocation } from "react-router-dom";
-import { AllRoutines, Home, Nav, Activities, Login, Register, SingleUserRoutines } from "./components";
+import { AllRoutines, Home, Nav, Activities, Login, Register, SingleUserRoutines, MyRoutines } from "./components";
 import Logout from "./components/Logout";
 
 // import { fetchPublicRoutines, fetchAllActivities } from './api/index';
@@ -36,6 +36,7 @@ const App = () => {
         <Route path="/activities" element={<Activities />} />
         <Route path="/register" element={<Register setToken={setToken} token={token}/>}/>
         <Route path="/routines/:creatorName" element={<SingleUserRoutines />}/>
+        <Route path="/routines/myactivities" element={<MyRoutines />}/>
       </Routes>
     </div>
   );
