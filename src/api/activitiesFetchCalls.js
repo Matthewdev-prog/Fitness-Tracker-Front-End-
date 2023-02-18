@@ -1,4 +1,4 @@
-const MAIN_URL = "http://fitnesstrac-kr.herokuapp.com/api/activities";
+const MAIN_URL = "http://fitnesstrac-kr.herokuapp.com/api/activities/";
 
 const fetchAllActivities = async () => {
   const response = await fetch(MAIN_URL, {
@@ -30,7 +30,22 @@ const createNewActivity = async ({name, description, token}) => {
   return result;
 }
 
+const getRoutinesByActivity = async ({id}) => {
+  const response = await fetch(`${MAIN_URL}${id}/routines`, {
+    headers: {
+      "Content-type": "application/json",
+    },
+  });
+
+  const result = await response.json();
+
+  console.log(result)
+
+  return result;
+}
+
 module.exports = {
   fetchAllActivities,
   createNewActivity,
+  getRoutinesByActivity,
 };

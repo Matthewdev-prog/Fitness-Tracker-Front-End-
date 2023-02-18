@@ -12,3 +12,23 @@
 .checkbox  {
   margin: 0 1rem 0 1rem
 }
+.routine {
+  margin: 1rem;
+  padding: .5rem;
+  border: 1px black;
+  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+}
+.routine:hover{
+  box-shadow: 0 8px 16px 0  #854CEA
+}
+.routine-activities {
+  display: flex;
+  border: 1px solid purple;
+  align-items: center;
+  padding: .5rem;
+  margin: .5rem 0 .5rem 0
+
+}
+.routine-activities > span {
+  margin: .5rem;
+}

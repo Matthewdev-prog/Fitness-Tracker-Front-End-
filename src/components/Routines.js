@@ -9,28 +9,27 @@ const Routines = (props) => {
         ? routines.map((routine) => {
             const { id, name, creatorName, goal, activities } = routine;
             return (
-              <div key={id}>
-                <ul>
+              <li className="routine" key={id}>
                   {" "}
-                  <li>{name}</li>{" "}
-                </ul>
+                  {name}{" "}
                 <div>goal of routine: {goal}</div>
                 <div>
                   by :{" "}
                   <Link to={`/routines/${creatorName}`}>{creatorName}</Link>
                 </div>
                 <div>
+                  <span>Routine Activities:</span>
                   {activities.length ? (
                     activities.map((activity) => {
                       console.log(activity);
                       const { id, count, duration, name, description } =
                         activity;
                       return (
-                        <div key={id}>
-                          <div>{name}:</div>
-                          <div>description: {description}</div>
-                          <div>count: {count}</div>
-                          <div>duration: {duration}</div>
+                        <div className="routine-activities" key={id}>
+                          <div>{name}: </div>
+                          <span>description: {description} </span>
+                          <span> count: {count} </span>
+                          <span> duration: {duration} </span>
                         </div>
                       );
                     })
@@ -38,7 +37,7 @@ const Routines = (props) => {
                     <div> No activities for this routine </div>
                   )}{" "}
                 </div>
-              </div>
+              </li>
             );
           })
         : null}

@@ -22,7 +22,7 @@ const CreateRoutines = (props) => {
 
   return (
     <div className="loginContainer">
-      <h1>Ceate a routine, follow it, shred the calories away!</h1>
+      <h1>Create a routine, follow it, shred the calories away!</h1>
       <div>{errorMessage}</div>
       <form className="formContainer" onSubmit={ev => handleSubmit(ev)}>
         <div className="formdiv">
