@@ -48,8 +48,7 @@ const getUsersPublicRoutines = async ({ username, token}) => {
   const response = await fetch(`${MAIN_URL}${username}/routines`, {
     headers: {
       "Content-Type": "application/json",
-      "Authorization": `Bearer ${token}`
-    },
+      },
   });
   if(token){
     response.headers = {
