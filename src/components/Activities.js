@@ -1,7 +1,9 @@
 import React, { useState, useEffect } from "react";
 import { fetchAllActivities } from "../api";
+import CreateActivity from "./CreateActivity";
 
-const Activities = () => {
+const Activities = (props) => {
+  const {token} = props
   const [AllActivities, setAllActivities] = useState([]);
 
   useEffect(() => {
@@ -18,16 +20,18 @@ const Activities = () => {
   <div>
 
      <h1>Activities</h1>
+     {token ? 
+       <CreateActivity />
+      : null
+     }
      <div className="activityCard">
     {AllActivities.length
       ? AllActivities.map((activity) => {
           const { id, name, description } = activity;
           return (
-            <div className="card">
-            <div key={id}>
+            <div className="card" key={id}>
               <div>Name: {name}</div>
               <div>Description: {description}</div>
-            </div>
             </div>
           );
         })

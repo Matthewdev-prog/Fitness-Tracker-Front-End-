@@ -11,4 +11,4 @@ export {
   getUsersPublicRoutines,
 } from "./userFetchCalls";
 
-export { fetchAllActivities } from "./activitiesFetchCalls";
+export { fetchAllActivities, createNewActivity } from "./activitiesFetchCalls";

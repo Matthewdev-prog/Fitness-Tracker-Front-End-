@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { useNavigate } from "react-router-dom";
 import { postNewRoutine } from "../api";
 
 const CreateRoutines = (props) => {
@@ -6,18 +7,23 @@ const CreateRoutines = (props) => {
   const [name, setName] = useState("");
   const [goal, setGoal] = useState("");
   const [isPublic, setIsPublic] = useState(false);
+  const [errorMessage, setErrorMessage] = useState("")
+  const nav = useNavigate()
 
   const handleSubmit = async(ev) => {
     ev.preventDefault();
-    console.log("goal!!", goal)
-    console.log(name,"name!!")
     const newRoutine = await postNewRoutine({name, goal, isPublic, token});
-    console.log("NEW",newRoutine)
+    if(newRoutine.error){
+      setErrorMessage(newRoutine.message)
+      return;
+    }
+    nav("routines/myroutines")
   }
 
   return (
     <div className="loginContainer">
       <h1>Ceate a routine, follow it, shred the calories away!</h1>
+      <div>{errorMessage}</div>
       <form className="formContainer" onSubmit={ev => handleSubmit(ev)}>
         <div className="formdiv">
           <label>Routine name</label>
