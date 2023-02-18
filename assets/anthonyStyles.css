@@ -21,3 +21,14 @@
 .routine:hover{
   box-shadow: 0 8px 16px 0  #854CEA
 }
+.routine-activities {
+  display: flex;
+  border: 1px solid purple;
+  align-items: center;
+  padding: .5rem;
+  margin: .5rem 0 .5rem 0
+
+}
+.routine-activities > span {
+  margin: .5rem;
+}
