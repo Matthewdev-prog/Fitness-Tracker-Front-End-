@@ -11,8 +11,6 @@ const fetchPublicRoutines = async () => {
 };
 
 const postNewRoutine = async ({ name, goal, isPublic, token }) => {
-  console.log(goal)
-  console.log(name)
   const response = await fetch(MAIN_URL, {
     method: "POST",
     headers: {

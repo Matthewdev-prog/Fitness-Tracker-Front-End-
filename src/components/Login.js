@@ -19,7 +19,7 @@ const Login = (props) => {
     const { token } = login;
     window.localStorage.setItem("token", token);
     setToken(token);
-    nav("/routines/myactivities");
+    nav("/routines/myroutines");
   };
 
   useEffect(() => {
