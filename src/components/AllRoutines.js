@@ -16,9 +16,9 @@ const AllRoutines = () => {
   return (
     <div>
       <h1>Routines</h1>
-      <div className="routines">
+      <ul className="routines">
         <Routines routines={publicRoutines} />
-      </div>
+      </ul>
     </div>
   );
 };

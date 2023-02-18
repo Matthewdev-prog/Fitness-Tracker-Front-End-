@@ -9,11 +9,9 @@ const Routines = (props) => {
         ? routines.map((routine) => {
             const { id, name, creatorName, goal, activities } = routine;
             return (
-              <div key={id}>
-                <ul>
+              <li className="routine" key={id}>
                   {" "}
-                  <li>{name}</li>{" "}
-                </ul>
+                  {name}{" "}
                 <div>goal of routine: {goal}</div>
                 <div>
                   by :{" "}
@@ -38,7 +36,7 @@ const Routines = (props) => {
                     <div> No activities for this routine </div>
                   )}{" "}
                 </div>
-              </div>
+              </li>
             );
           })
         : null}
