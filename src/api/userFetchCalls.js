@@ -13,8 +13,6 @@ const registerUser = async ({ username, password }) => {
   });
   result = await response.json();
 
-  console.log(result);
-
   return result;
 };
 
@@ -31,8 +29,6 @@ const loginUser = async ({ username, password }) => {
   });
   const result = await response.json();
 
-  console.log(result);
-
   return result;
 };
 
@@ -45,8 +41,6 @@ const getUserInfo = async (token) => {
   });
   const result = await response.json();
 
-  console.log(result);
-
   return result;
 };
 
@@ -54,9 +48,14 @@ const getUsersPublicRoutines = async ({ username, token}) => {
   const response = await fetch(`${MAIN_URL}${username}/routines`, {
     headers: {
       "Content-Type": "application/json",
-      "Authorization": `Bearer ${token}`
-    },
+      },
   });
+  if(token){
+    response.headers = {
+      "Content-Type": "application/json",
+      "Authorization": `Bearer ${token}`
+    }
+  }
   const result = await response.json();
 
   console.log(result);

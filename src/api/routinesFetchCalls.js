@@ -14,14 +14,14 @@ const postNewRoutine = async ({ name, goal, isPublic, token }) => {
   const response = await fetch(MAIN_URL, {
     method: "POST",
     headers: {
-      "Content-ype": "Application/json",
+      "Content-type": "Application/json",
       Authorization: `Bearer ${token}`,
     },
     body: JSON.stringify({
+      isPublic,
       name,
       goal,
-      isPublic,
-    }),
+    })
   });
   const result = await response.json();
 
