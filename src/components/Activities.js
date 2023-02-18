@@ -6,11 +6,11 @@ const Activities = (props) => {
   const {token} = props
   const [AllActivities, setAllActivities] = useState([]);
 
+  const loadActivities = async () => {
+    const activities = await fetchAllActivities();
+    setAllActivities(activities);
+  };
   useEffect(() => {
-    const loadActivities = async () => {
-      const activities = await fetchAllActivities();
-      setAllActivities(activities);
-    };
     loadActivities();
   }, []);
  //   console.log(AllActivities)
@@ -21,12 +21,12 @@ const Activities = (props) => {
 
      <h1>Activities</h1>
      {token ? 
-       <CreateActivity />
+       <CreateActivity token={token} loadActivities={loadActivities}/>
       : null
      }
      <div className="activityCard">
     {AllActivities.length
-      ? AllActivities.map((activity) => {
+      ? AllActivities.slice(0).reverse().map((activity) => {
           const { id, name, description } = activity;
           return (
             <div className="card" key={id}>

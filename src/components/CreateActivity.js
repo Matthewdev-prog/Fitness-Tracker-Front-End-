@@ -1,19 +1,29 @@
 import React, {useState} from 'react'
 import { createNewActivity } from '../api'
 
-const CreateActivity = () => {
-  const [description, setDescription] = useState("")
-  const [name, setName] = useState("")
+const CreateActivity = (props) => {
+  const {token, loadActivities} = props;
+  const [description, setDescription] = useState("");
+  const [name, setName] = useState("");
+  const [errorMessage, setErrorMessage] = useState("")
 
   const handleSubmit = async ev => {
     ev.preventDefault();
-    const newActivity = await createNewActivity({name, description, token})
+    const newActivity = await createNewActivity({name, description, token});
+    if(newActivity.error){
+      setErrorMessage(newActivity.message);
+      return;
+    }
+    setErrorMessage("Activity added to the list!");
+    setName('');
+    setDescription('');
+    loadActivities();
   }
 
   return (
     <div>
       <div >
-      {/* <div>{errorMessage}</div> */}
+      <div>{errorMessage}</div>
       <form className="formContainer" onSubmit={ev => handleSubmit(ev)}>
         <div className="formdiv">
           <label>Activity name</label>
