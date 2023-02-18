@@ -1,10 +1,10 @@
 import React, {useEffect, useState} from 'react'
 import { useNavigate } from 'react-router-dom';
-import { Routines } from ".";
+import { Routines, MyRoutines } from ".";
 import { getUsersPublicRoutines } from "../api";
 
 
-const MyRoutines = (props) => {
+const myRoutines = (props) => {
   const { token, setToken } = props;
   const nav = useNavigate();
   const [myRoutines, setmyRoutines] = useState([]);
@@ -62,7 +62,7 @@ const MyRoutines = (props) => {
       <h1>My Routines</h1>
       </div>
       <div className="routines">
-        <Routines routines={myRoutines} />
+        <MyRoutines routines={myRoutines} />
       </div>
 
 
@@ -76,4 +76,4 @@ const MyRoutines = (props) => {
 
 
 
-export default MyRoutines;
+export default myRoutines;
