@@ -13,6 +13,7 @@ const fetchAllActivities = async () => {
 
 const createNewActivity = async ({name, description, token}) => {
   const response = await fetch(MAIN_URL, {
+    method: "POST",
     headers:{
       "Content-type": "application/json",
       "Authorization": `Bearer ${token}`
