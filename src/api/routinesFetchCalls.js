@@ -61,18 +61,24 @@ const deleteRoutine = async ({ routineId, token }) => {
   return result;
 };
 
-const addActivityToRoutine = async ({ routineId, token }) => {
+const addActivityToRoutine = async ({
+  routineId,
+  token,
+  activityId,
+  count,
+  duration,
+}) => {
   const response = await fetch(`${MAIN_URL}${routineId}/activities`, {
     method: "POST",
     headers: {
       "Content-Type": "Application/json",
       Authorization: `Bearer ${token}`,
     },
-    body: {
+    body: JSON.stringify({
       activityId,
       count,
       duration,
-    },
+    }),
   });
 
   const result = await response.json();

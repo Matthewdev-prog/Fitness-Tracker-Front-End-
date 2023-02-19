@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
-import { EditRoutines } from ".";
+import { ActivityAddForm, EditRoutines } from ".";
 import { deleteRoutine } from "../api";
 
 const Routines = (props) => {
@@ -18,6 +18,11 @@ const Routines = (props) => {
     const routine = await deleteRoutine({ routineId, token });
     console.log(routine);
     callback();
+  };
+  const handleAddActivity = async (ev, id) => {
+    setAddActivity(!addActivity);
+    setRoutineId(id);
+    setEdit(false);
   };
 
   return (
@@ -83,10 +88,7 @@ const Routines = (props) => {
                             className="btn"
                             type="submit"
                             value="Add Activity"
-                            onClick={(ev) => {
-                              setAddActivity(!addActivity);
-                              setEdit(false);
-                            }}
+                            onClick={(ev) => handleAddActivity(ev, routine.id)}
                           />
                           <input
                             className="btn"
@@ -108,6 +110,14 @@ const Routines = (props) => {
                               token={token}
                               setEdit={setEdit}
                               callback={callback}
+                            />
+                          ) : null}
+                          {addActivity && routineId === routine.id ? (
+                            <ActivityAddForm
+                              token={token}
+                              routineId={routineId}
+                              callback={callback}
+                              setAddActivity={setAddActivity}
                             />
                           ) : null}
                         </>
