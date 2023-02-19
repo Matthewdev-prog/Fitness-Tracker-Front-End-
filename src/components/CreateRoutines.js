@@ -1,14 +1,16 @@
 import React, { useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useLocation } from "react-router-dom";
 import { postNewRoutine } from "../api";
 
 const CreateRoutines = (props) => {
-  const {token} = props
+  const {token, getRoutines} = props;
   const [name, setName] = useState("");
   const [goal, setGoal] = useState("");
   const [isPublic, setIsPublic] = useState(false);
   const [errorMessage, setErrorMessage] = useState("")
   const nav = useNavigate()
+  const location = useLocation();
+  const pathname = location.pathname;
 
   const handleSubmit = async(ev) => {
     ev.preventDefault();
@@ -17,7 +19,18 @@ const CreateRoutines = (props) => {
       setErrorMessage(newRoutine.message)
       return;
     }
-    nav("routines/myroutines")
+    setName("");
+    setGoal("");
+    if(!pathname === "/routines/myroutines"){
+      console.log("move");
+      nav("/routines/myroutines");
+      return;
+    }
+    await getRoutines();
+    setErrorMessage("You're routine has been added!")
+    setTimeout(() => {
+      setErrorMessage("")
+    }, 3000);
   }
 
   return (

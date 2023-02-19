@@ -45,22 +45,26 @@ const getUserInfo = async (token) => {
 };
 
 const getUsersPublicRoutines = async ({ username, token}) => {
-  const response = await fetch(`${MAIN_URL}${username}/routines`, {
-    headers: {
-      "Content-Type": "application/json",
-    },
-  });
   if(token){
-    response.headers = {
-      "Content-Type": "application/json",
-      "Authorization": `Bearer ${token}`
-    }
+    const response = await fetch(`${MAIN_URL}${username}/routines`, {
+      headers: {
+        "Content-Type": "application/json",
+        "Authorization": `Bearer ${token}`
+      },
+    });
+    const result = await response.json();
+  
+    return result;
+  } else {
+    const response = await fetch(`${MAIN_URL}${username}/routines`, {
+      headers: {
+        "Content-Type": "application/json",
+      },
+    });
+    const result = await response.json();
+  
+    return result;
   }
-  const result = await response.json();
-
-  console.log(result);
-
-  return result;
 };
 
 module.exports = {

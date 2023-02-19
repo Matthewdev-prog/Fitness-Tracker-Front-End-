@@ -30,6 +30,25 @@ const createNewActivity = async ({name, description, token}) => {
   return result;
 }
 
+const editActivity = async ({id, token, name, description}) => {
+  const response = await fetch(`${MAIN_URL}${id}`, {
+    headers: {
+      "Content-type": "application/json",
+      "Authorization": `Bearer ${token}`
+    },
+    body: {
+      name,
+      description
+    },
+  });
+
+  const result = await response.json();
+
+  console.log(result);
+
+  return result;
+}
+
 const getRoutinesByActivity = async ({id}) => {
   const response = await fetch(`${MAIN_URL}${id}/routines`, {
     headers: {
@@ -47,5 +66,6 @@ const getRoutinesByActivity = async ({id}) => {
 module.exports = {
   fetchAllActivities,
   createNewActivity,
+  editActivity,
   getRoutinesByActivity,
 };

@@ -12,7 +12,7 @@ const AllRoutines = () => {
     };
     loadRoutines();
   }, []);
-  console.log(publicRoutines);
+
   return (
     <div>
       <h1>Routines</h1>

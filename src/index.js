@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import { createRoot } from "react-dom/client";
 import { Routes, Route, HashRouter, useLocation } from "react-router-dom";
 import { getUserInfo } from "./api";
-import { AllRoutines, Home, Nav, Activities, Login, Register, SingleUserRoutines, MyRoutines } from "./components";
+import { AllRoutines, Home, Nav, Activities, Login, Register, SingleUserRoutines, MyRoutines, SingleActivityRoutines } from "./components";
 import Logout from "./components/Logout";
 
 // import { fetchPublicRoutines, fetchAllActivities } from './api/index';
@@ -46,7 +46,8 @@ const App = () => {
         <Route path="/activities" element={<Activities token={token}/>} />
         <Route path="/register" element={<Register setToken={setToken} token={token}/>}/>
         <Route path="/routines/:creatorName" element={<SingleUserRoutines token={token}/>}/>
-        <Route exact path="/routines/myroutines" element={<MyRoutines />}/>
+        <Route exact path="/routines/myroutines" element={<MyRoutines token={token} user={user}/>}/>
+        <Route path="/routines/activity/:id" element={<SingleActivityRoutines />}/>
       </Routes>
     </div>
   );

@@ -2,6 +2,8 @@ export {
   fetchPublicRoutines,
   postNewRoutine,
   editRoutine,
+  deleteRoutine,
+  addActivityToRoutine,
 } from "./routinesFetchCalls";
 
 export {
@@ -14,5 +16,6 @@ export {
 export { 
   fetchAllActivities,
   createNewActivity,
+  editActivity,
   getRoutinesByActivity
 } from "./activitiesFetchCalls";

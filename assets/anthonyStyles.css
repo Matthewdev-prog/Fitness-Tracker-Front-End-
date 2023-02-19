@@ -3,6 +3,7 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    padding: 4rem 0 4rem 0;
 }
 .checkBoxDiv {
   display: flex;
@@ -10,7 +11,7 @@
   padding: 1rem;
 }
 .checkbox  {
-  margin: 0 1rem 0 1rem
+  margin: 0 1rem 0 1rem;
 }
 .routine {
   margin: 1rem;
@@ -19,16 +20,51 @@
   box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
 }
 .routine:hover{
-  box-shadow: 0 8px 16px 0  #854CEA
+  box-shadow: 0 8px 16px 0  #854CEA;
+  transform: translateY(-.25rem);
 }
 .routine-activities {
   display: flex;
   border: 1px solid purple;
   align-items: center;
   padding: .5rem;
-  margin: .5rem 0 .5rem 0
-
+  margin: .5rem 0 .5rem 0;
+}
+.routine-activities > span:first-of-type {
+  align-self: start;
 }
 .routine-activities > span {
   margin: .5rem;
+}
+.routines-links{
+  color: #854CEA;
+  text-decoration: none;
+}
+.routines-links:hover{
+  color: #854CEA;
+  text-decoration: underline;
+}
+.my-routines{
+  margin-left: 1rem;
+}
+
+
+
+@media(max-width: 600px){
+  .routine-activities {
+    min-width: 600px;
+  }
+  .routine {
+    min-width: 650px;
+  }
+  .hero{
+    height: 1025px;
+    width:  1025px;
+  }
+  .topnav {
+    width: 1000px;
+  }
+  .loginContainer {
+    align-items: start;
+  }
 }

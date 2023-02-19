@@ -1,18 +1,31 @@
-import React, {useEffect} from 'react'
+import React, {useEffect, useState} from 'react'
 import { useNavigate } from 'react-router-dom';
+import { getUsersPublicRoutines } from '../api';
+import {CreateRoutines, Routines} from '.';
 
-const MyRoutines = () => {
+const MyRoutines = (props) => {
+  const {token, user} = props;
+  const {username, id} = user
+  const [routines, setRoutines] = useState("")
   const nav = useNavigate();
 
+  const getRoutines = async () => {
+    const myRoutines = await getUsersPublicRoutines({username, token});
+    setRoutines(myRoutines)
+  }
   useEffect(() => {
-    const token = window.localStorage.getItem("token");
     if(!token){
-    nav('/login')
+    nav('/login');
     }
+    getRoutines();
   }, [])
   return (
     <div>
-        "MINE"
+        <CreateRoutines token={token} getRoutines={getRoutines}/>
+        <div className='my-routines'>
+          {username}'s Routines!
+          <Routines routines={routines}/>
+        </div>
     </div>
   )
 }
