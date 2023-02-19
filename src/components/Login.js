@@ -23,11 +23,11 @@ const Login = (props) => {
   };
 
   useEffect(() => {
-    const token = window.localStorage.getItem("token")
-    if(token){
-      nav("/")
+    const token = window.localStorage.getItem("token");
+    if (token) {
+      nav("/");
     }
-  }, [])
+  }, []);
 
   return (
     <div className="loginContainer">

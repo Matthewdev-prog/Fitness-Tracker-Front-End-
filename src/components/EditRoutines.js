@@ -1,11 +1,7 @@
-import React from 'react'
+import React from "react";
 
 const EditRoutines = () => {
-  return (
-    <div>
-      
-    </div>
-  )
-}
+  return <div>EDIT ROUTINE</div>;
+};
 
 export default EditRoutines;

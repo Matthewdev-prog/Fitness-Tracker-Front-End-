@@ -7,38 +7,38 @@ const fetchAllActivities = async () => {
     },
   });
   const result = await response.json();
-  
+
   return result;
 };
 
-const createNewActivity = async ({name, description, token}) => {
+const createNewActivity = async ({ name, description, token }) => {
   const response = await fetch(MAIN_URL, {
     method: "POST",
-    headers:{
+    headers: {
       "Content-type": "application/json",
-      "Authorization": `Bearer ${token}`
+      Authorization: `Bearer ${token}`,
     },
     body: JSON.stringify({
       name,
-      description
-    })
-  })
+      description,
+    }),
+  });
   const result = await response.json();
 
   console.log(result);
 
   return result;
-}
+};
 
-const editActivity = async ({id, token, name, description}) => {
+const editActivity = async ({ id, token, name, description }) => {
   const response = await fetch(`${MAIN_URL}${id}`, {
     headers: {
       "Content-type": "application/json",
-      "Authorization": `Bearer ${token}`
+      Authorization: `Bearer ${token}`,
     },
     body: {
       name,
-      description
+      description,
     },
   });
 
@@ -47,9 +47,9 @@ const editActivity = async ({id, token, name, description}) => {
   console.log(result);
 
   return result;
-}
+};
 
-const getRoutinesByActivity = async ({id}) => {
+const getRoutinesByActivity = async ({ id }) => {
   const response = await fetch(`${MAIN_URL}${id}/routines`, {
     headers: {
       "Content-type": "application/json",
@@ -58,10 +58,10 @@ const getRoutinesByActivity = async ({id}) => {
 
   const result = await response.json();
 
-  console.log(result)
+  console.log(result);
 
   return result;
-}
+};
 
 module.exports = {
   fetchAllActivities,

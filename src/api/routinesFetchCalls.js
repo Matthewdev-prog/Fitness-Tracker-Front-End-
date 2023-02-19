@@ -15,13 +15,13 @@ const postNewRoutine = async ({ name, goal, isPublic, token }) => {
     method: "POST",
     headers: {
       "Content-Type": "Application/json",
-      "Authorization": `Bearer ${token}`,
+      Authorization: `Bearer ${token}`,
     },
     body: JSON.stringify({
       isPublic,
       name,
       goal,
-    })
+    }),
   });
   const result = await response.json();
 
@@ -35,7 +35,7 @@ const editRoutine = async ({ routineId, name, goal, token }) => {
     method: "PATCH",
     headers: {
       "Content-Type": "Application/json",
-      "Authorization": `Bearer ${token}`,
+      Authorization: `Bearer ${token}`,
     },
     body: JSON.stringify({ name, goal }),
   });
@@ -51,7 +51,7 @@ const deleteRoutine = async ({ routineId, token }) => {
     method: "DELETE",
     headers: {
       "Content-Type": "Application/json",
-      "Authorization": `Bearer ${token}`,
+      Authorization: `Bearer ${token}`,
     },
   });
   const result = await response.json();
@@ -61,26 +61,26 @@ const deleteRoutine = async ({ routineId, token }) => {
   return result;
 };
 
-const addActivityToRoutine = async ({routineId, token, }) => {
+const addActivityToRoutine = async ({ routineId, token }) => {
   const response = await fetch(`${MAIN_URL}${routineId}/activities`, {
     method: "POST",
     headers: {
       "Content-Type": "Application/json",
-      "Authorization": `Bearer ${token}`,
+      Authorization: `Bearer ${token}`,
     },
     body: {
       activityId,
       count,
       duration,
-    }
-  })
+    },
+  });
 
   const result = await response.json();
 
   console.log(result);
 
-  return result
-}
+  return result;
+};
 
 module.exports = {
   fetchPublicRoutines,

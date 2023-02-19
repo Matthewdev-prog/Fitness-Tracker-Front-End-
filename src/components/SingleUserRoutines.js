@@ -4,7 +4,7 @@ import { useLocation } from "react-router-dom";
 import Routines from "./Routines";
 
 const SingleUserRoutines = (props) => {
-  const {token} = props;
+  const { token, user } = props;
   const [userRoutines, setUserRoutines] = useState([]);
 
   const location = useLocation();
@@ -22,7 +22,7 @@ const SingleUserRoutines = (props) => {
   console.log(userRoutines);
   return (
     <div>
-      <Routines routines={userRoutines}/>
+      <Routines routines={userRoutines} user={user} />
     </div>
   );
 };

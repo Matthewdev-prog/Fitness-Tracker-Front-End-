@@ -44,16 +44,16 @@ const getUserInfo = async (token) => {
   return result;
 };
 
-const getUsersPublicRoutines = async ({ username, token}) => {
-  if(token){
+const getUsersPublicRoutines = async ({ username, token }) => {
+  if (token) {
     const response = await fetch(`${MAIN_URL}${username}/routines`, {
       headers: {
         "Content-Type": "application/json",
-        "Authorization": `Bearer ${token}`
+        Authorization: `Bearer ${token}`,
       },
     });
     const result = await response.json();
-  
+
     return result;
   } else {
     const response = await fetch(`${MAIN_URL}${username}/routines`, {
@@ -62,7 +62,7 @@ const getUsersPublicRoutines = async ({ username, token}) => {
       },
     });
     const result = await response.json();
-  
+
     return result;
   }
 };

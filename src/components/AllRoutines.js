@@ -2,7 +2,8 @@ import React, { useState, useEffect } from "react";
 import { fetchPublicRoutines } from "../api";
 import { Link } from "react-router-dom";
 import { Routines } from ".";
-const AllRoutines = () => {
+const AllRoutines = (props) => {
+  const { token, user } = props;
   const [publicRoutines, setPublicRoutines] = useState([]);
 
   useEffect(() => {
@@ -17,7 +18,7 @@ const AllRoutines = () => {
     <div>
       <h1>Routines</h1>
       <ul className="routines">
-        <Routines routines={publicRoutines} />
+        <Routines routines={publicRoutines} user={user} />
       </ul>
     </div>
   );
