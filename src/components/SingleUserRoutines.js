@@ -23,7 +23,12 @@ const SingleUserRoutines = (props) => {
   console.log(userRoutines);
   return (
     <div>
-      <Routines routines={userRoutines} user={user} token={token} callback={getRoutines}/>
+      <Routines
+        routines={userRoutines}
+        user={user}
+        token={token}
+        callback={getRoutines}
+      />
     </div>
   );
 };

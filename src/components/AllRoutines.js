@@ -10,7 +10,7 @@ const AllRoutines = (props) => {
     const routines = await fetchPublicRoutines();
     setPublicRoutines(routines);
   };
-  
+
   useEffect(() => {
     loadRoutines();
   }, []);
@@ -19,7 +19,12 @@ const AllRoutines = (props) => {
     <div>
       <h1>Routines</h1>
       <ul className="routines">
-        <Routines routines={publicRoutines} user={user} token={token} callback={loadRoutines}/>
+        <Routines
+          routines={publicRoutines}
+          user={user}
+          token={token}
+          callback={loadRoutines}
+        />
       </ul>
     </div>
   );

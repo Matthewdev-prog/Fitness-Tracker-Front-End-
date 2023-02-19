@@ -1,9 +1,10 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import { EditRoutines } from ".";
+import { deleteRoutine } from "../api";
 
 const Routines = (props) => {
-  const { routines, user, token, callback} = props;
+  const { routines, user, token, callback } = props;
   const [edit, setEdit] = useState(false);
   const [addActivity, setAddActivity] = useState(false);
   const [routineId, setRoutineId] = useState(null);
@@ -12,6 +13,11 @@ const Routines = (props) => {
     setEdit(!edit);
     setAddActivity(false);
     setRoutineId(id);
+  };
+  const handleDelete = async (ev, routineId) => {
+    const routine = await deleteRoutine({ routineId, token });
+    console.log(routine);
+    callback();
   };
 
   return (
@@ -88,9 +94,21 @@ const Routines = (props) => {
                             value="Edit"
                             onClick={(ev) => handleEdit(ev, routine.id)}
                           />
-                          <input className="btn" type="submit" value="Delete" />
+                          <input
+                            className="btn"
+                            type="submit"
+                            value="Delete"
+                            onClick={(ev) => handleDelete(ev, routine.id)}
+                          />
                           {edit && routineId === routine.id ? (
-                            <EditRoutines routineId={routineId} name={routine.name} goal={routine.goal} token={token} setEdit={setEdit} callback={callback}/>
+                            <EditRoutines
+                              routineId={routineId}
+                              name={routine.name}
+                              goal={routine.goal}
+                              token={token}
+                              setEdit={setEdit}
+                              callback={callback}
+                            />
                           ) : null}
                         </>
                       ) : null}

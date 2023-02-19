@@ -1,11 +1,7 @@
-import React from 'react'
+import React from "react";
 
 const ActivityAddForm = () => {
-  return (
-    <div>
-      ADD ACTIVITY
-    </div>
-  )
-}
+  return <div>ADD ACTIVITY</div>;
+};
 
 export default ActivityAddForm;
