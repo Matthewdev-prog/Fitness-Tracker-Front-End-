@@ -6,11 +6,12 @@ const AllRoutines = (props) => {
   const { token, user } = props;
   const [publicRoutines, setPublicRoutines] = useState([]);
 
+  const loadRoutines = async () => {
+    const routines = await fetchPublicRoutines();
+    setPublicRoutines(routines);
+  };
+  
   useEffect(() => {
-    const loadRoutines = async () => {
-      const routines = await fetchPublicRoutines();
-      setPublicRoutines(routines);
-    };
     loadRoutines();
   }, []);
 
@@ -18,7 +19,7 @@ const AllRoutines = (props) => {
     <div>
       <h1>Routines</h1>
       <ul className="routines">
-        <Routines routines={publicRoutines} user={user} />
+        <Routines routines={publicRoutines} user={user} token={token} callback={loadRoutines}/>
       </ul>
     </div>
   );

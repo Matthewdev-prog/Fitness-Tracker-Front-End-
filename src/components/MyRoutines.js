@@ -24,7 +24,7 @@ const MyRoutines = (props) => {
       <CreateRoutines token={token} getRoutines={getRoutines} />
       <div className="my-routines">
         {username}'s Routines!
-        <Routines routines={routines} user={user} />
+        <Routines routines={routines} user={user} token={token} callback={getRoutines}/>
       </div>
     </div>
   );

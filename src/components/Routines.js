@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import { EditRoutines } from ".";
 
 const Routines = (props) => {
-  const { routines, user } = props;
+  const { routines, user, token, callback} = props;
   const [edit, setEdit] = useState(false);
   const [addActivity, setAddActivity] = useState(false);
   const [routineId, setRoutineId] = useState(null);
@@ -90,7 +90,7 @@ const Routines = (props) => {
                           />
                           <input className="btn" type="submit" value="Delete" />
                           {edit && routineId === routine.id ? (
-                            <EditRoutines />
+                            <EditRoutines routineId={routineId} name={routine.name} goal={routine.goal} token={token} setEdit={setEdit} callback={callback}/>
                           ) : null}
                         </>
                       ) : null}

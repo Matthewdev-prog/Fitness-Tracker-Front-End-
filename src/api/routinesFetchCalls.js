@@ -30,14 +30,14 @@ const postNewRoutine = async ({ name, goal, isPublic, token }) => {
   return result;
 };
 
-const editRoutine = async ({ routineId, name, goal, token }) => {
+const editRoutine = async ({ routineId, name, goal, isPublic, token }) => {
   const response = await fetch(`${MAIN_URL}${routineId}`, {
     method: "PATCH",
     headers: {
       "Content-Type": "Application/json",
       Authorization: `Bearer ${token}`,
     },
-    body: JSON.stringify({ name, goal }),
+    body: JSON.stringify({ name, goal, isPublic }),
   });
   const result = await response.json();
 

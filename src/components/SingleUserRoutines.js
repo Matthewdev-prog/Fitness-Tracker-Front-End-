@@ -11,18 +11,19 @@ const SingleUserRoutines = (props) => {
   const pathName = location.pathname;
   const path = pathName.split("/");
   const username = pathName.split("/")[path.length - 1];
+  const getRoutines = async () => {
+    const routines = await getUsersPublicRoutines({ username, token });
+    setUserRoutines(routines);
+  };
+
   useEffect(() => {
-    const getRoutines = async () => {
-      const routines = await getUsersPublicRoutines({ username, token });
-      setUserRoutines(routines);
-    };
     getRoutines();
   }, [username]);
 
   console.log(userRoutines);
   return (
     <div>
-      <Routines routines={userRoutines} user={user} />
+      <Routines routines={userRoutines} user={user} token={token} callback={getRoutines}/>
     </div>
   );
 };

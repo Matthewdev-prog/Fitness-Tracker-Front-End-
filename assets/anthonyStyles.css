@@ -47,7 +47,12 @@
 .my-routines{
   margin-left: 1rem;
 }
-
+.edit{
+  margin: 1rem 0 .5rem 0
+}
+.edit-input{
+  width: 20rem;
+}
 
 
 @media(max-width: 600px){
