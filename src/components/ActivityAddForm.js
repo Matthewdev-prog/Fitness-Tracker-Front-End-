@@ -77,7 +77,7 @@ const ActivityAddForm = (props) => {
           </select>
         </div>
         <div>
-          <input className="btn" type="submit" value="Submit edit" />
+          <input className="btn" type="submit" value="Add adtivty" />
         </div>
       </form>
     </div>

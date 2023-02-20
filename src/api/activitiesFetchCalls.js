@@ -32,14 +32,15 @@ const createNewActivity = async ({ name, description, token }) => {
 
 const editActivity = async ({ id, token, name, description }) => {
   const response = await fetch(`${MAIN_URL}${id}`, {
+    method: "PATCH",
     headers: {
       "Content-type": "application/json",
       Authorization: `Bearer ${token}`,
     },
-    body: {
+    body: JSON.stringify({
       name,
       description,
-    },
+    }),
   });
 
   const result = await response.json();

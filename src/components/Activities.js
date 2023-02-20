@@ -1,15 +1,22 @@
 import React, { useState, useEffect } from "react";
 import { fetchAllActivities } from "../api";
-import CreateActivity from "./CreateActivity";
+import {CreateActivity, EditActivity} from ".";
 
 const Activities = (props) => {
   const { token } = props;
   const [AllActivities, setAllActivities] = useState([]);
+  const [edit, setEdit] = useState(false);
+  const [activityId, setActivityId] = useState(null);
 
   const loadActivities = async () => {
     const activities = await fetchAllActivities();
     setAllActivities(activities);
   };
+  
+  const handleEdit = async (ev, id) => {
+    setEdit(!edit);
+    setActivityId(id);
+  }
   useEffect(() => {
     loadActivities();
   }, []);
@@ -32,6 +39,14 @@ const Activities = (props) => {
                     <div className="card" key={id}>
                       <div>Name: {name}</div>
                       <div>Description: {description}</div>
+                      {token ? 
+                      <>
+                      <input className="btn" type="button"  value="edit" onClick={ev => handleEdit(ev, activity.id)}/>
+                      {edit && activityId === activity.id ?
+                        <EditActivity name={name} description={description} token={token} id={activityId} callback={loadActivities} setEdit={setEdit}/>
+                        : null }
+                      </>
+                      : null}
                     </div>
                   );
                 })
