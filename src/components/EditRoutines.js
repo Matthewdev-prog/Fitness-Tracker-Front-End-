@@ -15,11 +15,9 @@ const EditRoutines = (props) => {
       isPublic,
       token,
     });
-    console.log(newRoutine);
     setEdit(false);
     callback();
   };
-  console.log(isPublic);
   return (
     <div className="edit">
       <form onSubmit={(ev) => handleSubmit(ev)}>

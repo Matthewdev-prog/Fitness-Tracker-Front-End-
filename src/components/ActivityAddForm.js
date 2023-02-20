@@ -23,7 +23,6 @@ const ActivityAddForm = (props) => {
       count,
       duration,
     });
-    console.log(addedActivity);
     if (addedActivity.error) {
       setErrorMessage(addedActivity.message);
       return;

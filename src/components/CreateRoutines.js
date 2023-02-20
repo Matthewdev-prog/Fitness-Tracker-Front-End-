@@ -22,7 +22,6 @@ const CreateRoutines = (props) => {
     setName("");
     setGoal("");
     if (!pathname === "/routines/myroutines") {
-      console.log("move");
       nav("/routines/myroutines");
       return;
     }

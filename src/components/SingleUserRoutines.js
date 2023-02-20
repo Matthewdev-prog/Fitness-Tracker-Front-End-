@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { getUsersPublicRoutines } from "../api";
 import { useLocation } from "react-router-dom";
-import {Routines} from ".";
+import { Routines } from ".";
 
 const SingleUserRoutines = (props) => {
   const { token, user } = props;
@@ -20,7 +20,6 @@ const SingleUserRoutines = (props) => {
     getRoutines();
   }, [username]);
 
-  console.log(userRoutines);
   return (
     <div>
       <Routines

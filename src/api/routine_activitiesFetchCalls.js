@@ -1,4 +1,4 @@
-MAIN_URL = "http://fitnesstrac-kr.herokuapp.com/api/routine_activities/";
+MAIN_URL = "https://fitnesstrac-kr.herokuapp.com/api/routine_activities/";
 
 const editRoutineActivity = async ({ routineActivityId, token, body }) => {
   const response = await fetch(`${MAIN_URL}${routineActivityId}`, {
@@ -11,8 +11,6 @@ const editRoutineActivity = async ({ routineActivityId, token, body }) => {
   });
 
   const result = await response.json();
-
-  console.log(result);
 
   return result;
 };

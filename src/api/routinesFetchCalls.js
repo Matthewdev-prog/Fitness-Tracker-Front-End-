@@ -1,4 +1,4 @@
-const MAIN_URL = "http://fitnesstrac-kr.herokuapp.com/api/routines/";
+const MAIN_URL = "https://fitnesstrac-kr.herokuapp.com/api/routines/";
 
 const fetchPublicRoutines = async () => {
   const response = await fetch(MAIN_URL, {
@@ -25,8 +25,6 @@ const postNewRoutine = async ({ name, goal, isPublic, token }) => {
   });
   const result = await response.json();
 
-  console.log(result);
-
   return result;
 };
 
@@ -41,8 +39,6 @@ const editRoutine = async ({ routineId, name, goal, isPublic, token }) => {
   });
   const result = await response.json();
 
-  console.log(result);
-
   return result;
 };
 
@@ -55,8 +51,6 @@ const deleteRoutine = async ({ routineId, token }) => {
     },
   });
   const result = await response.json();
-
-  console.log(result);
 
   return result;
 };
@@ -82,8 +76,6 @@ const addActivityToRoutine = async ({
   });
 
   const result = await response.json();
-
-  console.log(result);
 
   return result;
 };

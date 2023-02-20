@@ -16,7 +16,7 @@ const Routines = (props) => {
   };
   const handleDelete = async (ev, routineId) => {
     const routine = await deleteRoutine({ routineId, token });
-    console.log(routine);
+
     callback();
   };
   const handleAddActivity = async (ev, id) => {

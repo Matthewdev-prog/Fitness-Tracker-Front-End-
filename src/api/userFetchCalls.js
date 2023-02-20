@@ -1,4 +1,4 @@
-const MAIN_URL = "http://fitnesstrac-kr.herokuapp.com/api/users/";
+const MAIN_URL = "https://fitnesstrac-kr.herokuapp.com/api/users/";
 
 const registerUser = async ({ username, password }) => {
   const response = await fetch(`${MAIN_URL}register`, {
