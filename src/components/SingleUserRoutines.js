@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { getUsersPublicRoutines } from "../api";
 import { useLocation } from "react-router-dom";
-import Routines from "./Routines";
+import {Routines} from ".";
 
 const SingleUserRoutines = (props) => {
   const { token, user } = props;
